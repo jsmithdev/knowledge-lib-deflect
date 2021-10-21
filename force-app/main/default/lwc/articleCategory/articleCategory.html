@@ -1,0 +1,66 @@
+<template>
+    
+    <li>
+
+        <div class="container">
+
+            <template if:true={category.children.length}>
+                <template if:false={active}>
+                    <lightning-icon
+                        size="small"
+                        onclick={activate}
+                        icon-name="utility:chevronright"
+                    ></lightning-icon>
+                </template>
+        
+                <template if:true={active}>
+                    <lightning-icon
+                        size="small"
+                        onclick={deactivate}
+                        icon-name="utility:chevrondown"
+                    ></lightning-icon>
+                </template>
+            </template>
+    
+            <div class="title">
+
+                <template if:false={category.children.length}>
+                    <div class="spacer"></div>
+                </template>
+
+                <template if:false={selected}>
+                    <lightning-input
+                        name={category.name}
+                        onchange={select}
+                        style="margin-right: -5px;"
+                        type="checkbox"
+                    ></lightning-input>
+                </template>
+                <template if:true={selected}>
+                    <lightning-input
+                        checked
+                        name={category.name}
+                        onchange={select}
+                        style="margin-right: -5px;"
+                        type="checkbox"
+                    ></lightning-input>
+                </template>
+
+                <span onclick={select}>
+                    {category.label}
+                </span>
+            </div>
+        </div>
+
+        <template if:true={active}>
+            <template if:true={category.children.length}>
+                <c-article-categories
+                    key={category.name}
+                    selected={selected}
+                    css-class="childList"
+                    categories={category.children} 
+                ></c-article-categories>
+            </template>
+        </template>
+    </li>
+</template>

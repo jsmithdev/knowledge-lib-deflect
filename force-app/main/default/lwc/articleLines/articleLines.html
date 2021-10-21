@@ -1,0 +1,13 @@
+<template>
+    
+    <ul class={cssClass}>
+        <template for:each={lines} for:item="line">
+            <c-article-line
+                oncreate={passthrough}
+                onvoted={passthrough}
+                key={line.Id}
+                record={line}
+            ></c-article-line>
+        </template>
+    </ul>
+</template>

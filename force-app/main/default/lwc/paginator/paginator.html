@@ -1,0 +1,34 @@
+<template>
+    
+    <div style="user-select: none;">
+
+        <lightning-button
+            variant="neutral"
+            label="Previous"
+            title="Previous"
+            onclick={previous}
+            icon-name="utility:chevronleft"
+            class="slds-p-around_xxx-small">
+        </lightning-button>
+
+        &nbsp;
+
+        {index}
+
+        of 
+
+        {end}
+
+        &nbsp;
+        
+        <lightning-button
+            variant="neutral"
+            icon-position="right"
+            label="Next"
+            title="Next"
+            onclick={next}
+            icon-name="utility:chevronright"
+            class="slds-p-around_xxx-small">
+        </lightning-button>
+    </div>
+</template>

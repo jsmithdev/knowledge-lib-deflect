@@ -1,0 +1,23 @@
+<template>
+
+    <lightning-card title={title} icon-name={icon}>
+
+        <template if:true={loaded}>
+            <c-article-lines
+                oncreate={create}
+                onvoted={vote}
+                css-class="initList"
+                lines={topLevelQuestions}
+            ></c-article-lines>
+        </template>
+
+        <template if:false={loaded}>
+            <lightning-spinner
+                variant="brand"
+                alternative-text="loading questions..."
+            ></lightning-spinner>
+        </template>
+    </lightning-card>
+
+
+</template>

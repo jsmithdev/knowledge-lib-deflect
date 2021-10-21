@@ -1,0 +1,169 @@
+<template>
+    
+    <div>
+
+        <!-- <template if:false={active}>
+            <input type="radio" />
+        </template>
+
+        <template if:true={active}>
+            <input type="radio" checked/>
+        </template> -->
+
+        <li onclick={onclick}>
+
+            <template if:false={article}>
+                <a onclick={createQuestionTracking}>
+                    <lightning-formatted-rich-text
+                        value={record.Question__c}>
+                    </lightning-formatted-rich-text>
+                </a>
+            </template>
+
+            <template if:true={active}>
+                <c-article-lines
+                    onvoted={passthrough}
+                    oncreate={passthrough}
+                    css-class="childList"
+                    lines={children}
+                ></c-article-lines>
+            </template>
+    
+            <template if:true={articles}>
+                <template for:each={articles} for:item="article">
+                    <c-modal
+                        key={article.Id}
+                        variant="large"
+                        onvoted={passthrough}
+                        onclose={handleClosedModal}>
+
+                        <span slot="trigger">
+                            <div 
+                                class="articleTitle__trigger" 
+                                onclick={createArticleTracking}
+                                data-uid={article.Id}>
+                                <a data-uid={article.Id}>{article.Title}</a>
+                            </div>
+                        </span>
+
+                        <span slot="header">
+                            <h1><b>{article.Title}</b></h1>
+                        </span>
+                        
+                        <span slot="content">
+
+                            <template if:true={showCase}>
+                                <lightning-record-edit-form 
+                                    density="comfy"
+                                    object-api-name="Case" 
+                                    onsuccess={createdCase}>
+                                    
+                                    <lightning-messages></lightning-messages>
+
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Subject'></lightning-input-field>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Type'></lightning-input-field>
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Case_Sub_Type__c'></lightning-input-field>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Example_Company__c'></lightning-input-field>
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Employee_Name_ID__c'></lightning-input-field>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Pay_Date_Range__c'></lightning-input-field>
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Priority'></lightning-input-field>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col">
+                                            <lightning-input-field field-name='Description'></lightning-input-field>
+                                        </div>
+                                    </div>
+                                    <lightning-input-field 
+                                        class="hidden" 
+                                        field-name="Origin" 
+                                        value="Web">
+                                    </lightning-input-field>
+
+
+                                    <template if:true={allowUploads}>
+                                        <div style="padding-left: .5rem;">
+                                            <lightning-file-upload
+                                                label="Attach a file"
+                                                name="fileUploader"
+                                                record-id={userId}
+                                                onuploadfinished={handleUploadFinished}
+                                            ></lightning-file-upload>
+                                        </div>
+                                    </template>
+                                    <template if:false={allowUploads}>
+                                        <p style="padding-left: .5rem; background: #DDD; border-radius: 5px;">
+                                            Uploaded: {filename}
+                                        </p>
+                                    </template>
+
+                                    <div style="float: right;">
+                                        <lightning-button 
+                                            variant="brand" 
+                                            type="submit" 
+                                            name="save" 
+                                            label="Submit Case"
+                                        ></lightning-button>
+                                    </div>
+                                </lightning-record-edit-form>
+                            </template>
+
+                            <template if:false={showCase}>
+                                <lightning-formatted-rich-text
+                                    value={article.Article_Body__c}
+                                ></lightning-formatted-rich-text>
+                            </template>
+                        </span>
+
+                        <span slot="footer-center">
+
+                            <c-voting-thumbs onvoted={passthrough}></c-voting-thumbs>
+
+                        </span>
+
+                        <span slot="footer">
+
+                            <template if:true={showCase}>
+                                <lightning-button
+                                    label="Cancel Case"
+                                    variant="brand"
+                                    onclick={toggleCase}>
+                                </lightning-button>
+                            </template>
+                            <template if:false={showCase}>
+                                <lightning-button
+                                    label="Open Case"
+                                    variant="brand"
+                                    onclick={toggleCase}>
+                                </lightning-button>
+                            </template>
+
+                        </span>
+
+                    </c-modal>
+                </template>
+            </template>
+        </li>
+    </div>
+
+</template>

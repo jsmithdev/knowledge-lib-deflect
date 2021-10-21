@@ -1,0 +1,9 @@
+.active path {
+    fill: purple;
+}
+.active svg {
+    fill: purple;
+}
+.active button {
+    color: purple;
+}

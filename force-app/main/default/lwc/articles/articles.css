@@ -1,0 +1,19 @@
+/* div {
+    background: #CCC;
+} */
+.article {
+    padding: 1.5rem 0 1rem;
+    border-bottom: 1px solid #e6e3e3;
+}
+.title {
+    display: block;
+}
+.summary {
+    display: block;
+}
+.categories {
+    display: block;
+    color: #54698d;
+    padding: 10px 0;
+    font-size: .85rem;
+}

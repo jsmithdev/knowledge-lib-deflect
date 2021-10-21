@@ -1,0 +1,13 @@
+<template>
+    <ul class={cssClass}>
+        <template if:true={categories}>
+            <template for:each={categories} for:item="category">
+                <c-article-category
+                    key={category.name}
+                    selected={selected}
+                    category={category}
+                ></c-article-category>
+            </template>
+        </template>
+    </ul>
+</template>

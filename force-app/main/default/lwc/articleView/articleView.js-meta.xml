@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <isExposed>true</isExposed>
+
+    <masterLabel>Article Tree</masterLabel>
+
+    <description>Main Article Tree deflection component</description>
+
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage, lightning__AppPage, lightningCommunity__Default">
+            <property 
+                name="title" 
+                type="String"
+                label="Title" 
+                description="Title for card Defaults to Articles"
+                default="Articles"
+            ></property>
+            <property 
+                name="icon" 
+                type="String"
+                label="Icon" 
+                description="Icon for card in the slds format. Defaults to standard:article"
+                default="standard:article"
+            ></property>
+            <property 
+                name="active" 
+                type="Boolean"
+                label="Active" 
+                description="This component creates records on init. Set to true to have it run as designed."
+                default="true"
+            ></property>
+        </targetConfig>
+    </targetConfigs>
+    
+</LightningComponentBundle>

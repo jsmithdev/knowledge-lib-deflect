@@ -1,0 +1,78 @@
+<template>
+
+    <div class="slds-card side-padding">
+
+        <div class="slds-grid slds-gutters side-padding bg-grey header">
+
+            <div class="slds-col slds-size_5-of-12 dropdown">
+                <lightning-icon icon-name={icon}></lightning-icon> <span class="title side-padding">{title}</span>
+            </div>
+            
+            <div class="slds-col slds-size_4-of-12">
+                <c-rummage-bar
+                    label="Search"
+                    placeholder="Search"
+                    onrummaged={handleSearch}>
+                </c-rummage-bar>
+            </div>
+            
+            <div class="slds-col slds-size_2-of-12 dropdown">
+                <select class="slds-select" onchange={sortArticles}>
+                    <option>Date</option>
+                    <option>Best Rating</option>
+                    <option>Most Viewed</option>
+                </select>
+            </div>
+            <div class="slds-col slds-size_1-of-12 dropdown">
+                <select class="slds-select" onchange={handlePageSize}>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-gutters bg-light-grey content">
+
+            <template if:false={loaded}>
+                <div class="slds-col slds-size_12-of-12">
+                    <lightning-spinner
+                        variant="brand"
+                        alternative-text="loading questions..."
+                    ></lightning-spinner>
+                </div>
+            </template>
+
+
+            <template if:true={loaded}>
+
+                <div class="slds-col slds-size_4-of-12">
+                    <h2 class="subtitle">Categories</h2>
+                    <c-article-categories
+                        onselected={handleCategories}
+                        css-class="initList"
+                        categories={categories}
+                    ></c-article-categories>
+                </div>
+
+                <div class="slds-col slds-size_8-of-12">
+                    <c-articles
+                        articles={articles}>
+                    </c-articles>
+                    <br/>
+                    <div class="center">
+                        <c-paginator
+                            index={indexPage}
+                            end={endPage}
+                            onnext={nextPage}
+                            onprevious={previousPage}
+                        ></c-paginator>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+    </div>
+
+</template>

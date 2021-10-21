@@ -1,0 +1,19 @@
+<template>
+
+
+
+    <template for:each={articles} for:item="article">
+
+        <div class="article" key={article.Id}>
+            
+            <a onclick={navToArticle} name={article.UrlName} class="slds-section__title" key={article.Id}>{article.Title}</a>
+
+            <p class="" key={article.Id}>Views: {article.Views}</p>
+            <p class="" key={article.Id}>Rating: {article.Rating}</p>
+            <br key={article.Id} />
+            <p class="summary" key={article.Id}>{article.Summary}</p>
+            <div class="categories" key={article.Id}>{article.Category}</div>
+        </div>
+    </template>
+    
+</template>

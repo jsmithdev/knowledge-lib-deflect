@@ -1,0 +1,28 @@
+a {
+    color: black;
+}
+
+input[type="radio"]{
+    margin-right: .5rem;
+}
+div.container {
+    display: inline-flex;
+    align-items: center;
+}
+div.title {
+    display: flex;
+    cursor: pointer;
+}
+div.spacer {
+    width: 1.5rem;
+}
+.articleTitle__trigger {
+    background: #EEE;
+    margin-bottom: .25rem;
+    padding: .5rem;
+    border-left: 2.5pt solid aquamarine;
+    border-radius: 5px;
+}
+.hidden {
+    display: none;
+}

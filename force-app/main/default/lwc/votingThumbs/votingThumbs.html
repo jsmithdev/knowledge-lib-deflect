@@ -1,0 +1,27 @@
+<template>
+
+    <lightning-button-icon-stateful
+        title="No"
+        onclick={vote}
+        selected={opposite_value}
+        data-type="dislike"
+        alternative-text="No" 
+        icon-name="utility:dislike" 
+        class={dislike__classList}
+    ></lightning-button-icon-stateful>
+    
+    <span class="slds-text-title--caps slds-m-horizontal--medium">
+        Was this article helpful?
+    </span>
+
+    <lightning-button-icon-stateful
+        title="Yes"
+        onclick={vote}
+        selected={value}
+        data-type="like"
+        alternative-text="Yes" 
+        icon-name="utility:like" 
+        class={like__classList}
+    ></lightning-button-icon-stateful>
+
+</template>

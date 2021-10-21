@@ -1,0 +1,42 @@
+select {
+    cursor: pointer;
+}
+
+.slds-card {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.header {
+    align-items: center;
+    border-radius: 5px 5px 0px 0px;
+}
+.title {
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+.subtitle {
+    font-size: 1rem;
+    vertical-align: middle;
+}
+.bg-grey {
+    background-color: #EEE;
+}
+.bg-light-grey {
+    background-color: #F8F8F8;
+}
+.side-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.dropdown {
+    margin-top: 6px;
+}
+.center {
+    text-align: center;
+}
+
+.content {
+    /* text-align: center; */
+    padding: 1rem 0rem;
+    border-radius: 0 0px 5px 5px;
+}

@@ -1,0 +1,12 @@
+.initList {
+    padding-left: .5rem;
+}
+.childList {
+    padding-left: 1rem;
+}
+ul > li :nth-child(odd){
+    background: lightblue;
+}
+html, body, template, div, a, li, ul, span {
+    font-size: 18px;
+}
