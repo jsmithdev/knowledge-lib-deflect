@@ -4,11 +4,11 @@ Article View / Defection: tree view of Questions to deflect case creation with t
 
 Knowledge Library: tree view of categories to filter articles with search filtering, pagination, sorting, etc
 
-![Screenshot of Components](./resources/screenie-both.png "Screenshot of Components")
+![Screenshot of Components](https://raw.githubusercontent.com/jsmithdev/knowledge-lib-deflect/master/resources/screenie-both.png "Screenshot of Components")
 
 Article View / Defection: example of article modal when drilled down to & clicking a green highlighted article title
 
-![Screenshot of Components](./resources/screenie-modal.png "Screenshot of Components")
+![Screenshot of Components](https://raw.githubusercontent.com/jsmithdev/knowledge-lib-deflect/master/resources/screenie-modal.png "Screenshot of Components")
 
 ## component layout
 
