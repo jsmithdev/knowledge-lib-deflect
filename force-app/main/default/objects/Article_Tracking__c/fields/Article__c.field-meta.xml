@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Article__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Lookup to article tracked</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Lookup to article tracked</inlineHelpText>
+    <label>Article</label>
+    <referenceTo>Knowledge__kav</referenceTo>
+    <relationshipLabel>Article Trackings</relationshipLabel>
+    <relationshipName>CD_Article_Trackings</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
